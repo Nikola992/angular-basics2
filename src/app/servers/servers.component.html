@@ -1,0 +1,18 @@
+<p>
+  I;m servers component and i hold all servers.
+</p>
+<div class="newServerBox">
+  <label>Server name:</label>
+  <input type="text" name="" value="" class="form-control" (input)="onInput($event)">
+  <input type="text" name="" class="form-control" [(ngModel)]="newServerName">
+  <p>New server name:{{newServerName}}</p>
+  <button type="button" name="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onAddNewServer()">Add new servers</button>
+  <p *ngIf="serverCreated;else serverNotCreated">{{ serverCreationStatus }}</p>
+  <ng-template #serverNotCreated>
+    <p>There is no server</p>
+  </ng-template>
+
+</div>
+
+
+<app-server *ngFor="let server of servers"></app-server>
